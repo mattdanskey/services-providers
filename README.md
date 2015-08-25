@@ -1,12 +1,10 @@
-# Insert Title Here
+# Services/Providers in AngularJS
+They can be confusing. Hopefully this makes them less so.
 
-#### See the presentation
-[Here](http://mattdanskey.github.io/)
+#### [Click Here](http://mattdanskey.github.io/services-providers) to see the presentation
 
 #### Official Documentation:
-[The API docs](https://docs.angularjs.org/api/)
-
-[The Developer Guide](https://docs.angularjs.org/guide/)
+[The Developer Guide](https://docs.angularjs.org/guide/providers)
 
 #### Technologies used to build this presentation:
 * [impress.js](https://github.com/bartaz/impress.js) as the presentation framework
