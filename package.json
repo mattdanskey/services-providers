@@ -1,0 +1,22 @@
+{
+  "name": "diving-into-directives",
+  "version": "1.0.0",
+  "description": "A talk and some examples for AngularJS 1.x directives",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "BUILD_DEV=1 webpack-dev-server --hot --inline",
+    "build": "webpack -p"
+  },
+  "author": "Matthew Danskey",
+  "license": "MIT",
+  "devDependencies": {
+    "autoprefixer-loader": "^1.2.0",
+    "css-loader": "^0.10.1",
+    "node-sass": "^2.1.1",
+    "sass-loader": "^0.6.0",
+    "style-loader": "^0.11.0",
+    "webpack": "^1.8.5",
+    "webpack-dev-server": "^1.8.2"
+  }
+}

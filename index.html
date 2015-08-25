@@ -1,0 +1,148 @@
+<html>
+<head>
+</head>
+
+<body>
+	<div id="impress">
+		<div id="intro" class="step" data-x="-2000" data-y="0" data-z="6000">
+			<span class="intro-see">See the code at</span><a class="intro-link" href="http://github.com/mattdanskey/diving-into-directives">github.com/mattdanskey/diving-into-directives</a>
+			<span class="intro-readme">The readme has useful links</span>
+			<span class="intro-hint">Press spacebar for next slide</span>
+		</div>
+		<div id="diving" class="step" data-x="0" data-y="0" data-z="6000">
+			<div class="diving-title">Diving Into Directives</div>
+			<div class="diving-name">Matthew Danskey</div>
+		</div>
+		<div id="rationale" class="step" data-x="0" data-y="0" data-z="9000">
+			<span class="peace">Reuse</span>
+			<span class="land">Isolation</span>
+			<span class="bread">Clarity</span>
+		</div>
+		<div id="defining" class="step" data-x="0" data-y="0" data-z="0">
+			<pre><code>return {
+  restrict:
+  scope:
+  template:
+  controller:
+  transclude:
+};</code></pre>
+		</div>
+		<div id="creating" class="step" data-x="-110" data-y="-30">
+		<pre><code>angular.module('myMod')
+  .directive('myDir', function(){
+
+
+
+
+
+
+
+});</code></pre>
+		</div>
+
+		<div id="e" class="step" data-x="0" data-y="-115" data-scale=".2">
+			<pre><code style="javascript" class="letter">'E'</code></pre>
+			<pre><code>&lt;my-dir&gt;&lt;/my-dir&gt;</code></pre>
+		</div>
+		<div id="a" class="step" data-x="0" data-y="-115" data-scale=".2">
+			<pre><code style="javascript" class="letter">'A'</code></pre>
+			<pre><code>&lt;div my-dir&gt;&lt;/div&gt;</code></pre>
+		</div>
+		<div id="c" class="step" data-x="0" data-y="-115" data-scale=".2">
+			<pre><code style="javascript" class="letter">'C'</code></pre>
+			<pre><code>&lt;div class="my-dir "&gt;&lt;/div&gt;</code></pre>
+		</div>
+		<div id="m" class="step" data-x="0" data-y="-115" data-scale=".2">
+			<pre><code style="javascript" class="letter">'M'</code></pre>
+			<pre><code>&lt;!-- directive: my-dir --&gt;</code></pre>
+		</div>
+
+		<div class="step" data-x="0" data-y="0" data-z="0">
+		</div>
+
+		<div id="true" class="step" data-x="0" data-y="-55" data-scale=".2">
+			default: shares existing scope
+		</div>
+		<div id="true" class="step" data-x="0" data-y="-55" data-scale=".2">
+			<pre><code style="javascript" class="letter">'true'</code></pre>
+			creates new scope (inherits from parents)
+		</div>
+		<div id="isolate" class="step" data-x="0" data-y="-55" data-scale=".2">
+			<pre><code style="javascript" class="letter">'{}'</code></pre>
+			isolate scope
+		</div>
+		<div id="equals" class="step" data-x="0" data-y="-55" data-scale=".2">
+			<pre><code style="javascript" class="letter">'='</code></pre>
+			<pre><code style="javascript">scope: {
+    x:'=myAttr'
+}</code></pre>
+			Two-way binding
+		</div>
+		<div id="at" class="step" data-x="0" data-y="-55" data-scale=".2">
+			<pre><code style="javascript" class="letter">'@'</code></pre>
+			<pre><code style="javascript">scope: {
+    x:'@myAttr'
+}</code></pre>
+			An expression that evaluates to a string
+			<pre><code style="html">my-attr="{{color}} selected"</code></pre>
+		</div>
+		<div id="ampersand" class="step" data-x="0" data-y="-55" data-scale=".2">
+			<pre><code style="javascript" class="letter">'&amp;'</code></pre>
+			<pre><code style="javascript">scope: {
+    x:'&myFuncAttr'
+}</code></pre>
+			Pass in a function that executes <br> in parent scope's context
+		</div>
+
+		<div class="step" data-x="0" data-y="0" data-z="0">
+		</div>
+
+		<div id="template" class="step" data-x="0" data-y="0" data-scale=".2">
+			<pre><code style="javascript">'&lt;div&gt;{{myAttr}}&lt;/div&gt;'</code></pre>
+		</div>
+		<div id="templateUrl" class="step" data-x="0" data-y="0" data-scale=".2">
+			<pre><code style="javascript">templateUrl: '/view/template.html'</code></pre>
+		</div>
+
+		<div class="step" data-x="0" data-y="0" data-z="0">
+		</div>
+
+		<div id="controller" class="step" data-x="0" data-y="55" data-scale=".2">
+			<pre><code style="javascript">'myCtrl'</code></pre>
+			or define one inline
+		</div>
+		<div id="controllerAs" class="step" data-x="0" data-y="55" data-scale=".2">
+			<pre><code style="javascript">controllerAs: 'myCtrl'</code></pre>
+			(angular 1.2)
+		</div>
+		<div id="bindToController" class="step" data-x="0" data-y="55" data-scale=".2">
+			<pre><code style="javascript">bindToController: 'true'</code></pre>
+			(angular 1.3): <br>
+			Bind isolate scope properties to controller
+		</div>
+
+		<div class="step" data-x="0" data-y="0" data-z="0">
+		</div>
+
+		<div id="transclude" class="step" data-x="0" data-y="110" data-scale=".2">
+		<pre><code style="javascript" class="transclude">transclude: 'true',
+template: '&lt;ng-transclude&gt;' +
+          '&lt;/ng-transclude&gt;'</code></pre>
+		</div>
+		<div id="testing" class="step" data-x="0" data-y="165" data-scale=".2">
+			$compile
+		</div>
+
+	</div> 
+	<div class="notes"></div>
+	<div class="navigation"></div>
+
+	<link rel="stylesheet" href="lib/highlight/solarized_light.css">
+	<script type="text/javascript" src="lib/highlight.pack.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+	<script type="text/javascript" src="lib/impress.js"></script>
+	<script>impress().init();</script>
+	<script src="build/bundle.js"></script>
+</body>
+
+</html>
