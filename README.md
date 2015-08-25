@@ -1,10 +1,11 @@
-# Diving Into Directives
+# Insert Title Here
 
 #### See the presentation
 [Here](http://mattdanskey.github.io/)
 
 #### Official Documentation:
 [The API docs](https://docs.angularjs.org/api/)
+
 [The Developer Guide](https://docs.angularjs.org/guide/)
 
 #### Technologies used to build this presentation:
