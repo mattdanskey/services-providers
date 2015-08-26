@@ -1,7 +1,7 @@
 {
-  "name": "diving-into-directives",
+  "name": "services-providers",
   "version": "1.0.0",
-  "description": "A talk and some examples for AngularJS 1.x directives",
+  "description": "A talk on AngularJS 1.x services/providers",
   "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
