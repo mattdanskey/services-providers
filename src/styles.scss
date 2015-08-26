@@ -17,7 +17,14 @@ body {
 	position: relative;
 	box-sizing: border-box;
 	width: 1200px;
+	width: 1700px;
+	font-size: 70px;
 	// margin-left: 40px;
+}
+
+#factory {
+	font-size: 45px;
+	font-size: 65px;
 }
 
 .impress-enabled .step {
@@ -99,8 +106,4 @@ body {
 	background-color: #444;
 	color: #EEE;
 	padding: 10px 20px;
-}
-
-#factory {
-	font-size: 45px;
 }
