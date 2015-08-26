@@ -1,5 +1,5 @@
 # Services/Providers in AngularJS
-They can be confusing. Hopefully this makes them less so. Apparently officially they are known as `services` but are often referenced as `providers` (even in the official AngularJS developer guide's header).
+AngularJS Services can be confusing. Hopefully this makes them less so. They are often know as `services` --but are also referenced as `providers` (even, say, in the official AngularJS developer guide's header).
 
 `Note: Yes, we have called one of our service recipes 'Service'. We regret this and know that we'll be somehow punished for our misdeed. It's like we named one of our offspring 'Child'. Boy, that would mess with the teachers.` --from the below-linked providers documentation
 
