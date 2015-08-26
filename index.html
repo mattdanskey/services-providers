@@ -24,8 +24,8 @@
 			</ul>
 		</div>
 		<div id="value" class="step example" data-x="0" data-y="0" data-z="-2000">
-			<pre><code style="javascript">angular.module('myApp', [])
-.value('value')</code></pre>
+			<pre><code style="javascript"><span class="boilerplate">angular.module('myApp', [])</span>
+.value('foo', 98128)</code></pre>
 		</div>
 
 		<div id="factory-desc" class="step description" data-x="0" data-y="0" data-z="0">
@@ -35,19 +35,34 @@
 			</ul>
 		</div>
 		<div id="factory" class="step example" data-x="0" data-y="0" data-z="-2000">
-			<pre><code style="javascript">angular.module('myApp', [])
-.factory('value')</code></pre>
+			<pre><code style="javascript"><span class="boilerplate">angular.module('myApp', [])</span>
+.factory('foo', function() {
+
+  return {
+    bar: "Alberta",
+    baz: function() {}
+  };
+
+});</code></pre>
 		</div>
 
 		<div id="service-desc" class="step description" data-x="0" data-y="0" data-z="0">
-			<p>Value</p>
+			<p>Service</p>
 			<ul>
 				<li>does things</li>
 			</ul>
 		</div>
 		<div id="service" class="step example" data-x="0" data-y="0" data-z="-2000">
-			<pre><code style="javascript">angular.module('myApp', [])
-.service('value')</code></pre>
+			<pre><code style="javascript"><span class="boilerplate">angular.module('myApp', [])</span>
+.service('foo', function() {
+
+  this.wat = "What?";
+
+  this.bar = function() {
+    return(this.wat.split(''))
+  }.bind(this);
+
+});</code></pre>
 		</div>
 
 		<div id="provider-desc" class="step description" data-x="0" data-y="0" data-z="0">
@@ -57,7 +72,7 @@
 			</ul>
 		</div>
 		<div id="provider" class="step example" data-x="0" data-y="0" data-z="-2000">
-			<pre><code style="javascript">angular.module('myApp', [])
+			<pre><code style="javascript"><span class="boilerplate">angular.module('myApp', [])</span>
 .provider('value')</code></pre>
 		</div>
 
@@ -68,17 +83,40 @@
 			</ul>
 		</div>
 		<div id="constant" class="step example" data-x="0" data-y="0" data-z="-2000">
-			<pre><code style="javascript">angular.module('myApp', [])
+			<pre><code style="javascript"><span class="boilerplate">angular.module('myApp', [])</span>
 .value('value')</code></pre>
 		</div>
 
-		<div id="service-ex" class="step description" data-x="0" data-y="0" data-z="0">
-			<pre><code style="javascript">angular.module('myApp', [])
-.value('value')</code></pre>
+		<div id="service-ex" class="step description" data-x="0" data-y="5000" data-z="0">
+			<pre><code style="javascript"><span class="boilerplate">angular.module('myApp', [])</span>
+.service('foo', function() {
+
+    this.hello = "Hi!";
+
+});</code></pre>
 		</div>
-		<div id="factory-service" class="step example" data-x="0" data-y="0" data-z="-2000">
-			<pre><code style="javascript">angular.module('myApp', [])
-.value('value')</code></pre>
+		<div id="factory-service" class="step example" data-x="0" data-y="5000" data-z="-2000">
+			<pre><code style="javascript"><span class="boilerplate">angular.module('myApp', [])</span>
+.factory('foo', function(){
+
+  function foo() {
+    this.hello = "Hi!";
+  }
+
+  return new foo();
+});</code></pre>
+		</div>
+
+		<div id="angular-2" class="step description" data-x="0" data-y="0" data-z="0">
+			<div class="what-about-angular-two">Angular 2.0?</div>
+		</div>
+		<div id="es6-class" class="step example" data-x="0" data-y="0" data-z="-2000">
+			<div class="es6-title">Plain ole ES6 classes</div>
+			<pre><code style="javascript">class Foo {
+  //codey codes
+}</code></pre>
+			<div class="still">Still singletons.</div>
+			<div class="still">Still dependency injected.</div>
 		</div>
 
 	</div>
