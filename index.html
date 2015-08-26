@@ -4,6 +4,7 @@
 
 <body>
 	<div id="impress">
+
 		<div id="intro" class="step" data-x="-2000" data-y="0" data-z="0">
 			<span class="intro-title">Services / Providers</span>
 			<span class="intro-name">Matt Danskey</span>
@@ -20,27 +21,32 @@
 		<div id="value-desc" class="step description" data-x="0" data-y="0" data-z="0">
 			<p>Value</p>
 			<ul>
-				<li>does things</li>
+				<li>What you pass in is its value.</li>
+				<li>Can't use dependencies</li>
+				<li>If it's an object, its state is shared wherever it's injected.</li>
 			</ul>
 		</div>
 		<div id="value" class="step example" data-x="0" data-y="0" data-z="-2000">
 			<pre><code style="javascript"><span class="boilerplate">angular.module('myApp', [])</span>
-.value('foo', 98128)</code></pre>
+.value('myValue', 98128)</code></pre>
 		</div>
 
 		<div id="factory-desc" class="step description" data-x="0" data-y="0" data-z="0">
 			<p>Factory</p>
 			<ul>
-				<li>does things</li>
+				<li>Takes a function</li>
+				<li>Return value is singleton & is what is injected</li>
 			</ul>
 		</div>
 		<div id="factory" class="step example" data-x="0" data-y="0" data-z="-2000">
-			<pre><code style="javascript"><span class="boilerplate">angular.module('myApp', [])</span>
-.factory('foo', function() {
+			<pre><code style="javascript"><span class="boilerplate">angular.module('myApp')</span>
+.factory('myFactory', function(myValue) {
 
   return {
-    bar: "Alberta",
-    baz: function() {}
+    foo: "Alberta",
+    bar: function() {
+      return myValue / 2;
+    }
   };
 
 });</code></pre>
@@ -49,46 +55,25 @@
 		<div id="service-desc" class="step description" data-x="0" data-y="0" data-z="0">
 			<p>Service</p>
 			<ul>
-				<li>does things</li>
+				<li>Takes a constructor function</li>
+				<li>Calls it with new</li>
 			</ul>
 		</div>
 		<div id="service" class="step example" data-x="0" data-y="0" data-z="-2000">
-			<pre><code style="javascript"><span class="boilerplate">angular.module('myApp', [])</span>
-.service('foo', function() {
+			<pre><code style="javascript"><span class="boilerplate">angular.module('myApp')</span>
+.service('foo', function(myFactory) {
 
-  this.wat = "What?";
+  this.wat = myFactory.bar() + '';
 
   this.bar = function() {
-    return(this.wat.split(''))
+    return this.wat.split('');
   }.bind(this);
 
 });</code></pre>
 		</div>
 
-		<div id="provider-desc" class="step description" data-x="0" data-y="0" data-z="0">
-			<p>Value</p>
-			<ul>
-				<li>does things</li>
-			</ul>
-		</div>
-		<div id="provider" class="step example" data-x="0" data-y="0" data-z="-2000">
-			<pre><code style="javascript"><span class="boilerplate">angular.module('myApp', [])</span>
-.provider('value')</code></pre>
-		</div>
-
-		<div id="constant-desc" class="step description" data-x="0" data-y="0" data-z="0">
-			<p>Value</p>
-			<ul>
-				<li>does things</li>
-			</ul>
-		</div>
-		<div id="constant" class="step example" data-x="0" data-y="0" data-z="-2000">
-			<pre><code style="javascript"><span class="boilerplate">angular.module('myApp', [])</span>
-.value('value')</code></pre>
-		</div>
-
 		<div id="service-ex" class="step description" data-x="0" data-y="5000" data-z="0">
-			<pre><code style="javascript"><span class="boilerplate">angular.module('myApp', [])</span>
+			<pre><code style="javascript"><span class="boilerplate">angular.module('myApp')</span>
 .service('foo', function() {
 
     this.hello = "Hi!";
@@ -96,7 +81,7 @@
 });</code></pre>
 		</div>
 		<div id="factory-service" class="step example" data-x="0" data-y="5000" data-z="-2000">
-			<pre><code style="javascript"><span class="boilerplate">angular.module('myApp', [])</span>
+			<pre><code style="javascript"><span class="boilerplate">angular.module('myApp')</span>
 .factory('foo', function(){
 
   function foo() {
@@ -105,6 +90,51 @@
 
   return new foo();
 });</code></pre>
+		</div>
+
+		<div id="provider-desc" class="step description" data-x="0" data-y="0" data-z="0">
+			<p>Provider</p>
+			<ul>
+				<li>Secretly all of the preceding service types!</li>
+				<li>Allows for alteration during the config stage</li>
+				<li>Only can depend on constants</li>
+				<li><span class="keyword">this.$get</span></li>
+			</ul>
+		</div>
+		<div id="provider" class="step example" data-x="0" data-y="0" data-z="-2000">
+			<pre><code style="javascript"><span class="boilerplate">angular.module('myApp')</span>
+.provider('crayonColor', function() {
+  this.hue = "red";
+
+  this.$get = function(foo) {
+    return {
+      crayon: hue,
+      listOfNumberStrings: foo.bar();
+    };
+  };
+});</code></pre>
+		</div>
+		<div id="provider-config" class="step example" data-x="0" data-y="0" data-z="-2000">
+			<pre><code style="javascript"><span class="boilerplate">angular.module('myApp')</span>
+.config(function(crayonColorProvider){
+
+crayonColorProvider.hue = "blue";
+
+})</code></pre>
+		</div>
+
+		<div id="constant-desc" class="step description" data-x="0" data-y="0" data-z="0">
+			<p>Constant</p>
+			<ul>
+				<li>Not immutable (e.g. if an Object, its value can be changed)</li>
+				<li>Basically a value, except: </li>
+				<li>Can be injected into a provider</li>
+				<li>Can't be intercepted by a decorator</li>
+			</ul>
+		</div>
+		<div id="constant" class="step example" data-x="0" data-y="0" data-z="-2000">
+			<pre><code style="javascript"><span class="boilerplate">angular.module('myApp', [])</span>
+.constant('hands', 2.3)</code></pre>
 		</div>
 
 		<div id="angular-2" class="step description" data-x="0" data-y="0" data-z="0">

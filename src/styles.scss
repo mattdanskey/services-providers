@@ -17,7 +17,7 @@ body {
 	position: relative;
 	box-sizing: border-box;
 	width: 1200px;
-	margin-left: 40px;
+	// margin-left: 40px;
 }
 
 .impress-enabled .step {
@@ -85,6 +85,22 @@ body {
 
 .description {
 	p {
-		
+		font-size: 100px;
+		margin-left: 200px;
+		margin-top: 0px;
 	}
+	li {
+		margin-bottom: 50px;
+		list-style-type:none;
+	}
+}
+
+.keyword {
+	background-color: #444;
+	color: #EEE;
+	padding: 10px 20px;
+}
+
+#factory {
+	font-size: 45px;
 }
